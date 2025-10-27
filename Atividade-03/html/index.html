@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
   <title>ONG</title>
 
   
@@ -68,17 +69,17 @@
       <h2>Nossa Equipe</h2>
       <div class="cards">
         <div class="card">
-          <img src="assets/girl01.jpeg" alt="Coordenadora">
+          <img src="../assets/girl01.jpeg" alt="Coordenadora">
           <h3>Maria Silva</h3>
           <p>Coordenadora Geral</p>
         </div>
         <div class="card">
-          <img src="assets/men.jpeg" alt="Gestor de Projetos">
+          <img src="../assets/men.jpeg" alt="Gestor de Projetos">
           <h3>João Pereira</h3>
           <p>Gestor de Projetos</p>
         </div>
         <div class="card">
-          <img src="assets/girl02.jpeg" alt="Comunicação">
+          <img src="../assets/girl02.jpeg" alt="Comunicação">
           <h3>Carla Souza</h3>
           <p>Comunicação e Parcerias</p>
         </div>
@@ -117,7 +118,30 @@
     </div>
   </footer>
 
- 
+  <script>
+    // Menu hamburguer funcional
+    const btnMobile = document.getElementById('btn-mobile');
+    const menu = document.querySelector('nav ul');
+
+    btnMobile.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+    // Botão voltar ao topo
+    const btnTop = document.createElement('button');
+    btnTop.id = 'btn-top';
+    btnTop.textContent = '↑';
+    document.body.appendChild(btnTop);
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) btnTop.style.display = 'block';
+      else btnTop.style.display = 'none';
+    });
+
+    btnTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 
 </html>

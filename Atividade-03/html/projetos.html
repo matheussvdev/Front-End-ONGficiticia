@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/projetos.css">
     <title>Projetos - ONG Atividade01</title>
 
+    
 </head>
 
 <body>
@@ -35,14 +37,14 @@
             <h2 id="h2projetos">Projetos em Andamento</h2>
             <div class="cards">
                 <article class="card">
-                    <img src="assets/Educacao-para-Todos.jpg" alt="Alunos estudando no projeto Educação para Todos">
+                    <img src="../assets/Educacao-para-Todos.jpg" alt="Alunos estudando no projeto Educação para Todos">
                     <h3>Educação para Todos</h3>
                     <p>Oferecemos cursos gratuitos e oficinas para jovens e adultos em situação de vulnerabilidade.</p>
                     <a href="#" class="btn">Saiba Mais</a>
                 </article>
 
                 <article class="card">
-                    <img src="assets/Alimentar-Esperanca.jpg"
+                    <img src="../assets/Alimentar-Esperanca.jpg"
                         alt="Voluntários entregando alimentos no projeto Alimentar Esperança">
                     <h3>Alimentar Esperança</h3>
                     <p>Distribuímos cestas básicas e refeições em comunidades carentes semanalmente.</p>
@@ -50,7 +52,7 @@
                 </article>
 
                 <article class="card">
-                    <img src="assets/verde-viver.jpg" alt="Crianças plantando árvores no projeto Verde Viver">
+                    <img src="../assets/verde-viver.jpg" alt="Crianças plantando árvores no projeto Verde Viver">
                     <h3>Verde Viver</h3>
                     <p>Plantio de árvores e educação ambiental em escolas e praças públicas.</p>
                     <a href="#" class="btn">Saiba Mais</a>
@@ -100,6 +102,23 @@
 
     <button id="btn-top" aria-label="Voltar ao topo">↑</button>
 
+    <script>
+        // Menu hamburguer funcional
+        const btnMobile = document.getElementById('btn-mobile');
+        const menu = document.querySelector('nav ul');
+        btnMobile.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+
+        // Botão voltar ao topo
+        const btnTop = document.getElementById('btn-top');
+        window.addEventListener('scroll', () => {
+            btnTop.style.display = window.scrollY > 200 ? 'block' : 'none';
+        });
+        btnTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 
 </html>
