@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/cadastro.css">
+      <link rel="shortcut icon" href="assets/logo.jpg" type="image/png">
     <title>Cadastro - ONG Atividade01</title>
    
 </head>
@@ -14,7 +15,7 @@
         <h1>ONG</h1>
         <nav id="menu">
             <ul>
-                <li><a href="index.html">Início</a></li>
+                <li><a href="../index.html">Início</a></li>
                 <li><a href="projetos.html">Projetos</a></li>
             </ul>
         </nav>
@@ -55,59 +56,12 @@
                 <option value="RJ">Rio de Janeiro</option>
                 <option value="MG">Minas Gerais</option>
                 <option value="RS">Rio Grande do Sul</option>
+                 <option value="OUT">Outros</option>
             </select>
 
             <button type="submit">Cadastrar</button>
         </form>
     </div>
-
-    <script>
-        // Máscaras
-        const cpfInput = document.getElementById('cpf');
-        cpfInput.addEventListener('input', () => {
-            let v = cpfInput.value.replace(/\D/g, '');
-            v = v.replace(/(\d{3})(\d)/, '$1.$2');
-            v = v.replace(/(\d{3})(\d)/, '$1.$2');
-            v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-            cpfInput.value = v;
-        });
-
-        const telefoneInput = document.getElementById('telefone');
-        telefoneInput.addEventListener('input', () => {
-            let v = telefoneInput.value.replace(/\D/g, '');
-            if (v.length <= 10) {
-                v = v.replace(/(\d{2})(\d)/, '($1) $2');
-                v = v.replace(/(\d{4})(\d)/, '$1-$2');
-            } else {
-                v = v.replace(/(\d{2})(\d)/, '($1) $2');
-                v = v.replace(/(\d{5})(\d)/, '$1-$2');
-            }
-            telefoneInput.value = v;
-        });
-
-        const cepInput = document.getElementById('cep');
-        cepInput.addEventListener('input', () => {
-            let v = cepInput.value.replace(/\D/g, '');
-            v = v.replace(/(\d{5})(\d)/, '$1-$2');
-            cepInput.value = v;
-        });
-
-        // Form submit
-        const form = document.getElementById('cadastroForm');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Cadastro realizado com sucesso!');
-            window.location.href = 'index.html';
-        });
-
-        // Menu hamburguer
-        const btnMobile = document.getElementById('btn-mobile');
-        const menu = document.querySelector('nav ul');
-
-        btnMobile.addEventListener('click', () => {
-            menu.classList.toggle('active');
-        });
-    </script>
 </body>
 
 </html>

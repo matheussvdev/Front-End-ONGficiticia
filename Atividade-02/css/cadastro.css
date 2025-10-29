@@ -100,6 +100,20 @@
             background-color: #002b59;
         }
 
+        /*MENSAGEM DE SUCESSO*/
+        .sucess{
+            display: none;
+            text-align: center;
+            margin-top: 1rem;
+            color: green;
+            font-weight: bolder;
+
+        }
+
+
+
+        /**/
+
         /* RESPONSIVO */
         @media (max-width: 768px) {
             nav ul {

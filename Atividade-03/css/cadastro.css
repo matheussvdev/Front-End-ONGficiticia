@@ -1,146 +1,240 @@
-    /* NAV */
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
+/* ===== BASE ===== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+  color: #222;
+}
 
-        header {
-            background-color: #004080;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+h3{
+  text-align: center;
+  margin-top: 2%;
+}
 
-        header h1 {
-            color: white;
-            font-size: 1.8em;
-            margin: 0;
-        }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 15px;
-            margin: 0;
-            padding: 0;
-        }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
+/* ===== HEADER ===== */
+header {
+  background: #004080;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  flex-wrap: wrap;
+}
 
-        #btn-mobile {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8em;
-            cursor: pointer;
-        }
+h1 { margin: 0; font-size: 1.6em; }
 
-        /* CONTAINER */
-        .container {
-            max-width: 600px;
-            margin: 30px auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
 
-        #cadastroh1 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #004080;
-        }
+a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+#btn-mobile {
+  display: none;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 1.6em;
 
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
+   margin: 10px auto;
+  
+}
 
-        input,
-        select {
-            padding: 10px;
-            font-size: 1rem;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            width: 100%;
-            box-sizing: border-box;
-        }
+/* ===== CADASTRO ===== */
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+}
 
-        input:invalid {
-            border-color: red;
-        }
+#cadastroh1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #004080;
+}
 
-        button {
-            padding: 12px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-            background-color: #004080;
-            color: #fff;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+#cadastroForm{
+    margin-left: 30%;
+    margin-right: 30%;
+}
 
-        button:hover {
-            background-color: #002b59;
-        }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-        /* RESPONSIVO */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                width: 100%;
-                display: none;
-                margin-top: 10px;
-            }
+label { font-size: 0.9rem; }
 
-            nav ul.active {
-                display: flex;
-            }
+input, select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
 
-            #btn-mobile {
-                display: block;
-            }
+button {
+  background: #004080;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
 
-            .container {
-                margin: 20px 10px;
-                padding: 20px;
-            }
-        }
+button:hover { background: #003366; }
 
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.5em;
-            }
+/* ===== BOTÃO TABELA ===== */
+#toggleTabela {
+  display: block;           /* faz o botão se comportar como bloco */
+  margin: 0 auto 10px auto; /* centraliza horizontalmente e mantém 10px embaixo */
+  background: #0066cc;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-            button,
-            #btn-mobile {
-                font-size: 0.9rem;
-                padding: 10px;
-            }
+/* efeito de hover (opcional, deixa o botão mais interativo) */
+#toggleTabela:hover {
+  background: #005bb5;
+}
 
-            input,
-            select {
-                font-size: 0.9rem;
-                padding: 8px;
-            }
 
-            #cadastroh1 {
-                font-size: 1.5em;
-            }
-        }
+/* ===== TABELA DE VOLUNTÁRIOS ===== */
+#tabelaVoluntarios {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#tabelaVoluntarios thead {
+  background: #004080;
+  color: #fff;
+}
+
+#tabelaVoluntarios th,
+#tabelaVoluntarios td {
+  padding: 12px 10px;
+  text-align: left;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #ddd;
+}
+
+#tabelaVoluntarios tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+#tabelaVoluntarios tbody tr:hover {
+  background: #e6f0ff;
+  transition: background 0.3s;
+}
+
+.btn-excluir {
+  background: #c0392b;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.3s;
+}
+
+.btn-excluir:hover {
+  background: #a93226;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  #tabelaVoluntarios th,
+  #tabelaVoluntarios td {
+    font-size: 0.85rem;
+    padding: 8px 6px;
+  }
+
+  .btn-excluir {
+    padding: 5px 8px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Tabela como cartão */
+  #tabelaVoluntarios {
+    border: none;
+    box-shadow: none;
+  }
+
+  #tabelaVoluntarios thead {
+    display: none;
+  }
+
+  #tabelaVoluntarios tbody tr {
+    display: block;
+    margin-bottom: 15px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  #tabelaVoluntarios td {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    text-align: right;
+    border: none;
+  }
+
+  #tabelaVoluntarios td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    text-align: left;
+    flex: 1;
+    color: #004080;
+  }
+
+  .btn-excluir {
+    width: 100%;
+    margin-top: 8px;
+  }
+}
+
+/* ===== RESPONSIVO MENU ===== */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    margin-top: 8px;
+  }
+  nav ul.active { display: flex; }
+  #btn-mobile { display: block; }
+  .container { margin: 20px 10px; padding: 20px; }
+}
+
+@media (max-width: 480px) {
+  h1, #cadastroh1 { font-size: 1.4em; }
+  input, select, button { font-size: 0.9rem; padding: 8px; }
+}

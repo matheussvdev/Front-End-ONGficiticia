@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/projetos.css">
+      <link rel="shortcut icon" href="assets/logo.jpg" type="image/png">
     <title>Projetos - ONG Atividade01</title>
 
     
@@ -15,8 +16,9 @@
         <h1>ONG</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Início</a></li>
+                <li><a href="../index.html">Início</a></li>
                 <li><a href="#projetos">Projetos</a></li>
+                <li><a href="cadastro.html">Seja um voluntariado</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
@@ -35,8 +37,8 @@
         <!-- PROJETOS -->
         <section id="projetos">
             <h2 id="h2projetos">Projetos em Andamento</h2>
-            <div class="cards">
-                <article class="card">
+            <div class="cardspro">
+                <article class="cardpro">
                     <img src="../assets/Educacao-para-Todos.jpg" alt="Alunos estudando no projeto Educação para Todos">
                     <h3>Educação para Todos</h3>
                     <p>Oferecemos cursos gratuitos e oficinas para jovens e adultos em situação de vulnerabilidade.</p>
@@ -102,23 +104,7 @@
 
     <button id="btn-top" aria-label="Voltar ao topo">↑</button>
 
-    <script>
-        // Menu hamburguer funcional
-        const btnMobile = document.getElementById('btn-mobile');
-        const menu = document.querySelector('nav ul');
-        btnMobile.addEventListener('click', () => {
-            menu.classList.toggle('active');
-        });
-
-        // Botão voltar ao topo
-        const btnTop = document.getElementById('btn-top');
-        window.addEventListener('scroll', () => {
-            btnTop.style.display = window.scrollY > 200 ? 'block' : 'none';
-        });
-        btnTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
+  
 </body>
 
 </html>
