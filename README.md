@@ -25,12 +25,12 @@ Cada atividade representa uma etapa da evolução do projeto.
 
 ---
 
-##Estrutura de pastas
+## Estrutura de pastas
 ```
  ong/
 │
-├──  Atividade-01/   → Site em HTML puro
-├──  Atividade-02/   → Site com CSS
-├──  Atividade-03/   → Site com JavaScript
-└──  README.md      → Explicação geral do projeto
+├──  📁 Atividade-01/   → Site em HTML puro
+├──  📁 Atividade-02/   → Site com CSS
+├──  📁 Atividade-03/   → Site com JavaScript
+└──  📄 README.md      → Explicação geral do projeto
 ```
