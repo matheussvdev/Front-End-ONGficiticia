@@ -1,4 +1,4 @@
-  /* =========================
+   /* =========================
        ESTILO GLOBAL
     ========================= */
   * {
@@ -379,3 +379,49 @@
       height: 250px;
     }
   }
+
+
+  :root {
+  --cor-fundo: #ffffff;
+  --cor-texto: #222;
+  --cor-primaria: #0066cc;
+  --cor-card: #f4f4f4;
+}
+
+body.dark {
+  --cor-fundo: #121212;
+  --cor-texto: #eaeaea;
+  --cor-primaria: #4da3ff;
+  --cor-card: #1e1e1e;
+  background-color: black;
+  color: white;
+}
+
+body.dark h2,
+body.dark h3{
+
+  color: white;
+}
+
+/* Use as variáveis no resto do site */
+body {
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  transition:  0.3s, color 0.3s;
+}
+
+.btn,
+button {
+  background: var(--cor-primaria);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition:  0.3s;
+}
+
+.card, .card2 {
+  background: var(--cor-card);
+  color: var(--cor-texto);
+  border-radius: 10px;
+  padding: 10px;
+}
