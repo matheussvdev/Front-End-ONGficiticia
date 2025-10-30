@@ -1,27 +1,5 @@
 const conteudo = document.getElementById("conteudo");
 
-// ===== FUNÇÕES DE MÁSCARA =====
-function mascaraCPF(cpf) {
-  cpf.value = cpf.value
-    .replace(/\D/g, "")
-    .replace(/(\d{3})(\d)/, "$1.$2")
-    .replace(/(\d{3})(\d)/, "$1.$2")
-    .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
-}
-
-function mascaraTelefone(telefone) {
-  telefone.value = telefone.value
-    .replace(/\D/g, "")
-    .replace(/^(\d{2})(\d)/, "($1) $2")
-    .replace(/(\d{5})(\d)/, "$1-$2");
-}
-
-function mascaraCEP(cep) {
-  cep.value = cep.value
-    .replace(/\D/g, "")
-    .replace(/^(\d{5})(\d)/, "$1-$2");
-}
-
 // ===== SPA =====
 function carregarPagina(pagina) {
   conteudo.classList.remove("mostrar");
@@ -29,90 +7,21 @@ function carregarPagina(pagina) {
   setTimeout(() => {
     let template = "";
 
-    // HOME
-    if (pagina === "home") {
-      template = `
-        <section class="hero">
-          <div class="hero-content">
-            <h2>Transformando vidas com solidariedade</h2>
-            <p>Juntos construímos um futuro mais justo, com oportunidades para todos.</p>
-            <button class="btn" data-page="projetos">Conheça nossos projetos</button>
-          </div>
-        </section>
-      `;
-    }
-
-    // SOBRE
-    if (pagina === "sobre") {
-      template = `
-        <section class="historico">
-          <h2>Nossa História e Conquistas</h2>
-          <p>Desde 2010, a ONG Atividade01 tem impactado positivamente milhares de pessoas com projetos voltados à educação, saúde e meio ambiente.</p>
-          <ul>
-            <li>+10.000 pessoas beneficiadas</li>
-            <li>+150 voluntários ativos</li>
-            <li>+50 projetos concluídos</li>
-          </ul>
-        </section>
-      `;
-    }
-
-    // EQUIPE
-    if (pagina === "equipe") {
-      template = `
-        <section class="equipe">
-          <h2>Nossa Equipe</h2>
-          <div class="cards">
-            <div class="card">
-              <img src="assets/girl01.jpeg" alt="Coordenadora">
-              <h3>Maria Silva</h3>
-              <p>Coordenadora Geral</p>
+    switch (pagina) {
+      case "home":
+        template = `
+          <section class="hero">
+            <div class="hero-content">
+              <h2>Transformando vidas com solidariedade</h2>
+              <p>Juntos construímos um futuro mais justo, com oportunidades para todos.</p>
+              <button class="btn" data-page="projetos">Conheça nossos projetos</button>
             </div>
-            <div class="card">
-              <img src="assets/men.jpeg" alt="Gestor de Projetos">
-              <h3>João Pereira</h3>
-              <p>Gestor de Projetos</p>
-            </div>
-            <div class="card">
-              <img src="assets/girl02.jpeg" alt="Comunicação">
-              <h3>Carla Souza</h3>
-              <p>Comunicação e Parcerias</p>
-            </div>
-          </div>
-        </section>
-      `;
-    }
+          </section>
+        `;
+        break;
 
-    // PROJETOS
-    if (pagina === "projetos") {
-      const projetos = [
-        { nome: "Educação para Todos", descricao: "Oferece reforço escolar gratuito.", Image: "assets/Educacao-para-Todos.jpg" },
-        { nome: "Verde Esperança", descricao: "Projeto de reflorestamento urbano.", Image: "assets/Alimentar-Esperanca.jpg" },
-        { nome: "Mãos que Ajudam", descricao: "Campanhas de arrecadação de alimentos.", Image: "assets/verde-viver.jpg" },
-      ];
-
-      const cards = projetos.map(p => `
-        <div class="card2">
-          <img src="${p.Image}" alt="${p.nome}">
-          <h3>${p.nome}</h3>
-          <p>${p.descricao}</p>
-        </div>
-      `).join("");
-
-      template = `
-        <section class="mvv">
-          <h2>Projetos em Andamento</h2>
-          <div class="cards">${cards}</div>
-        </section>
-      `;
-    }
-
-    // CADASTRO
-    if (pagina === "cadastro") {
-      template = `
-        <section class="cadastro">
-          <h2>Cadastre-se como voluntário</h2>
-          <form id="cadastroForm">
+        case "cadastro":
+          template =`<form id="cadastroForm">
             <label for="nome">Nome Completo:</label>
             <input type="text" id="nome" name="nome" required>
 
@@ -139,160 +48,139 @@ function carregarPagina(pagina) {
 
             <label for="estado">Estado:</label>
             <select id="estado" name="estado" required>
-              <option value="">Selecione...</option>
-              <option value="SP">São Paulo</option>
-              <option value="RJ">Rio de Janeiro</option>
-              <option value="MG">Minas Gerais</option>
-              <option value="RS">Rio Grande do Sul</option>
-              <option value="OUT">Outros</option>
+                <option value="">Selecione...</option>
+                <option value="SP">São Paulo</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="RS">Rio Grande do Sul</option>
+                 <option value="OUT">Outros</option>
             </select>
 
             <button type="submit">Cadastrar</button>
-          </form>
+        </form>`;
+        break;
 
-          <h3>Voluntários cadastrados</h3>
-          <button id="toggleTabela" class="btn">Mostrar/Esconder tabela</button>
-          <table id="tabelaVoluntarios" border="1">
-            <thead>
-              <tr>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>CPF</th>
-                <th>Telefone</th>
-                <th>Data de Nascimento</th>
-                <th>Endereço</th>
-                <th>CEP</th>
-                <th>Cidade</th>
-                <th>Estado</th>
-                <th>Ações</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </section>
-      `;
-    }
+      case "sobre":
+        template = `
+          <section class="historico">
+            <h2>Nossa História e Conquistas</h2>
+            <p>Desde 2010, a ONG Atividade01 impacta positivamente milhares de pessoas.</p>
+            <ul>
+              <li>+10.000 pessoas beneficiadas</li>
+              <li>+150 voluntários ativos</li>
+              <li>+50 projetos concluídos</li>
+            </ul>
+          </section>
+        `;
+        break;
 
-    // CONTATO
-    if (pagina === "contato") {
-      template = `
-        <section class="contato">
-          <h2>Entre em contato</h2>
-          <p>Email: contato@atividade01.org</p>
-          <p>Telefone: (11) 99999-9999</p>
-        </section>
-      `;
+      case "equipe":
+        template = `
+          <section class="equipe">
+            <h2>Nossa Equipe</h2>
+            <div class="cards">
+              <div class="card">
+                <img src="assets/girl01.jpeg" alt="Coordenadora">
+                <h3>Maria Silva</h3>
+                <p>Coordenadora Geral</p>
+              </div>
+              <div class="card">
+                <img src="assets/men.jpeg" alt="Gestor de Projetos">
+                <h3>João Pereira</h3>
+                <p>Gestor de Projetos</p>
+              </div>
+              <div class="card">
+                <img src="assets/girl02.jpeg" alt="Comunicação">
+                <h3>Carla Souza</h3>
+                <p>Comunicação e Parcerias</p>
+              </div>
+            </div>
+          </section>
+        `;
+        break;
+
+      case "projetos":
+        template = `
+          <section class="mvv">
+            <h2>Projetos em Andamento</h2>
+            <div class="cards">
+              <div class="card2">
+                  <img src="assets/Educacao-para-Todos.jpg" alt="Alunos estudando no projeto Educação para Todos">
+                <h3>Educação para Todos</h3>
+                <p>Oferece reforço escolar gratuito.</p>
+              </div>
+              <div class="card2">
+               <img src="assets/verde-viver.jpg" alt="Crianças plantando árvores no projeto Verde Viver">
+               
+                <h3>Verde Esperança</h3>
+                <p>Projeto de reflorestamento urbano.</p>
+              </div>
+              <div class="card2">
+             <img src="assets/Alimentar-Esperanca.jpg"
+                        alt="Voluntários entregando alimentos no projeto Alimentar Esperança">
+                <h3>Mãos que Ajudam</h3>
+                <p>Campanhas de arrecadação de alimentos.</p>
+              </div>
+            </div>
+          </section>
+        `;
+        break;
+
+      case "contato":
+        template = `
+          <section class="contato">
+            <h2>Entre em contato</h2>
+            <p>Email: contato@atividade01.org</p>
+            <p>Telefone: (11) 99999-9999</p>
+          </section>
+        `;
+        break;
     }
 
     conteudo.innerHTML = template;
 
-    // LINKS SPA
+    // Reaplicar eventos dos links
     document.querySelectorAll("[data-page]").forEach(link => {
       link.addEventListener("click", e => {
         e.preventDefault();
-        const novaPagina = link.getAttribute("data-page");
-        carregarPagina(novaPagina);
+        carregarPagina(link.getAttribute("data-page"));
       });
     });
 
-    // ===== CADASTRO / TABELA =====
-    if (pagina === "cadastro") {
-      const tabela = document.getElementById("tabelaVoluntarios");
-      const btnToggle = document.getElementById("toggleTabela");
-
-      // Inicialmente escondida
-      tabela.style.display = "none";
-
-      btnToggle.addEventListener("click", () => {
-        if (tabela.style.display === "none") {
-          tabela.style.display = "table";
-          btnToggle.textContent = "Esconder tabela";
-        } else {
-          tabela.style.display = "none";
-          btnToggle.textContent = "Mostrar tabela";
-        }
-      });
-
-      const inputCPF = document.getElementById("cpf");
-      const inputTelefone = document.getElementById("telefone");
-      const inputCEP = document.getElementById("cep");
-
-      inputCPF.addEventListener("input", () => mascaraCPF(inputCPF));
-      inputTelefone.addEventListener("input", () => mascaraTelefone(inputTelefone));
-      inputCEP.addEventListener("input", () => mascaraCEP(inputCEP));
-
-      const voluntarios = JSON.parse(localStorage.getItem("voluntarios")) || [];
-      const form = document.getElementById("cadastroForm");
-      const tbody = document.querySelector("#tabelaVoluntarios tbody");
-
-      function atualizarTabela() {
-        tbody.innerHTML = voluntarios.map((v, i) => `
-          <tr>
-            <td>${v.nome}</td>
-            <td>${v.email}</td>
-            <td>${v.cpf}</td>
-            <td>${v.telefone}</td>
-            <td>${v.dataNascimento}</td>
-            <td>${v.endereco}</td>
-            <td>${v.cep}</td>
-            <td>${v.cidade}</td>
-            <td>${v.estado}</td>
-            <td><button data-index="${i}" class="btn-excluir">Excluir</button></td>
-          </tr>
-        `).join("");
-
-        document.querySelectorAll(".btn-excluir").forEach(btn => {
-          btn.addEventListener("click", () => {
-            const index = btn.getAttribute("data-index");
-            voluntarios.splice(index, 1);
-            localStorage.setItem("voluntarios", JSON.stringify(voluntarios));
-            atualizarTabela();
-          });
-        });
-      }
-
-      atualizarTabela();
-
-      form.addEventListener("submit", e => {
-        e.preventDefault();
-        const dados = {
-          nome: form.nome.value,
-          email: form.email.value,
-          cpf: form.cpf.value,
-          telefone: form.telefone.value,
-          dataNascimento: form.dataNascimento.value,
-          endereco: form.endereco.value,
-          cep: form.cep.value,
-          cidade: form.cidade.value,
-          estado: form.estado.value,
-        };
-        voluntarios.push(dados);
-        localStorage.setItem("voluntarios", JSON.stringify(voluntarios));
-        atualizarTabela();
-        form.reset();
-      });
-    }
-
     setTimeout(() => conteudo.classList.add("mostrar"), 50);
-  }, 200);
+  }, 100);
 }
 
-// SPA - Links principais
+// Inicializa SPA
 document.querySelectorAll("[data-page]").forEach(link => {
   link.addEventListener("click", e => {
     e.preventDefault();
-    const pagina = link.getAttribute("data-page");
-    carregarPagina(pagina);
+    carregarPagina(link.getAttribute("data-page"));
   });
 });
 
-// Carrega home
+// Carrega página inicial
 carregarPagina("home");
 
-// ===== HAMBURGUER FIXO =====
+// ===== HAMBURGUER =====
 const btnMobile = document.getElementById("btn-mobile");
 const menu = document.getElementById("menu");
+btnMobile.addEventListener("click", () => menu.classList.toggle("active"));
 
-btnMobile.addEventListener("click", () => {
-  menu.classList.toggle("active");
+// ===== MODO ESCURO =====
+const btnTema = document.getElementById("btn-tema");
+const temaSalvo = localStorage.getItem("tema");
+
+function aplicarTema(tema) {
+  document.body.classList.toggle("dark", tema === "dark");
+  btnTema.textContent = tema === "dark" ? "☀️" : "🌙";
+}
+
+if (temaSalvo) aplicarTema(temaSalvo);
+else if (window.matchMedia("(prefers-color-scheme: dark)").matches) aplicarTema("dark");
+
+btnTema.addEventListener("click", () => {
+  const novoTema = document.body.classList.contains("dark") ? "light" : "dark";
+  aplicarTema(novoTema);
+  localStorage.setItem("tema", novoTema);
 });
