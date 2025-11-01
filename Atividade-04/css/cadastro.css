@@ -234,10 +234,7 @@ button:hover { background: #003366; }
     font-size: 0.8rem;
   }
 
-   #cadastroForm{
-    margin-left: 20%;
-    margin-right: 20%;
-}
+  
 }
 
 @media (max-width: 480px) {
@@ -281,11 +278,7 @@ button:hover { background: #003366; }
     margin-top: 8px;
   }
 
-   #cadastroForm{
-
-    margin-left: 20%;
-    margin-right: 20%;
-}
+   
 }
 
 /* ===== RESPONSIVO MENU ===== */
