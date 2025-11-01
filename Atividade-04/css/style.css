@@ -465,6 +465,21 @@ button {
   .card2 {
     width: 90%;
   }
+
+  .card img{
+    height: 450px;
+  }
+
+  
+  main {
+  flex: 1; /* empurra o footer para o final */
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 }
 
 /* ===== Celulares menores ===== */
@@ -487,6 +502,11 @@ button {
     font-size: 1.5em;
   }
 
+  
+  .card img{
+    height: 450px;
+  }
+
   .hero p {
     font-size: 1em;
   }
@@ -499,4 +519,14 @@ button {
   .card img {
     height: 350px;
   }
+
+  main {
+  flex: 1; /* empurra o footer para o final */
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 }

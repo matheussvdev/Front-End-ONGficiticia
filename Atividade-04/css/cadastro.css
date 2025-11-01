@@ -233,6 +233,12 @@ button:hover { background: #003366; }
     padding: 5px 8px;
     font-size: 0.8rem;
   }
+
+   #cadastroForm{
+
+    margin-left: 20%;
+    margin-right: 20%;
+}
 }
 
 @media (max-width: 480px) {
@@ -275,6 +281,12 @@ button:hover { background: #003366; }
     width: 100%;
     margin-top: 8px;
   }
+
+   #cadastroForm{
+
+    margin-left: 20%;
+    margin-right: 20%;
+}
 }
 
 /* ===== RESPONSIVO MENU ===== */
@@ -288,9 +300,22 @@ button:hover { background: #003366; }
   nav ul.active { display: flex; }
   #btn-mobile { display: block; }
   .container { margin: 20px 10px; padding: 20px; }
+
+  #cadastroForm{
+
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
 }
 
 @media (max-width: 480px) {
   h1, #cadastroh1 { font-size: 1.4em; }
   input, select, button { font-size: 0.9rem; padding: 8px; }
+
+   #cadastroForm{
+
+    margin-left: 20%;
+    margin-right: 20%;
+}
 }
