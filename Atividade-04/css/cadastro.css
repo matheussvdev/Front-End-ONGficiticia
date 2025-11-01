@@ -289,6 +289,15 @@ button:hover { background: #003366; }
 }
 
 /* ===== RESPONSIVO MENU ===== */
+
+@media (max-width: 1000px) {
+   #cadastroForm{
+
+    margin-left: 20%;
+    margin-right: 20%;
+}
+}
+
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
